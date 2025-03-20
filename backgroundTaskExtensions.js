@@ -1,4 +1,3 @@
-// Utility function to scroll to bottom
 export const CommandRequestExtension = {
   name: 'CommandRequest',
   type: 'effect',
