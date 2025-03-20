@@ -1,0 +1,46 @@
+<!-- THIS IS AN EXAMPLE PAGE AND SHOULD NOT BE USED OUTSIDE OF DEVELOPMENT -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Demo Test | Voiceflow Extension</title>
+    <style>
+      body {
+        background-color: #f9f9f9;
+        margin: 0;
+        min-height: 100vh;
+        font-family: 'Arial', sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <script type="module">
+      import { CommandRequestExtension, NotificationExtension } from '/extensions/backgroundTaskExtensions.js';
+      (function (d, t) {
+        var v = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+        v.onload = function () {
+          const config = {
+            verify: { projectID: '67dbe584ec988166c58985d3' },
+            url: 'https://general-runtime.voiceflow.com',
+            versionID: 'development',
+            voice: {
+              url: "https://runtime-api.voiceflow.com"
+            },
+            assistant: {
+              extensions: [
+                CommandRequestExtension,
+                NotificationExtension
+              ],
+            },
+          };
+          // Initialize widget with config
+          window.voiceflow.chat.load(config);
+        };
+        v.src = 'https://cdn.voiceflow.com/widget-next/bundle.mjs';
+        v.type = 'text/javascript';
+        s.parentNode.insertBefore(v, s);
+      })(document, 'script');
+    </script>
+  </body>
+</html>
